@@ -1,10 +1,36 @@
 const db = require("../config/database");
+const fs = require("fs");
+const path = require("path");
+
+const logsDir = path.join(__dirname, "../logs/machines");
+
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir, { recursive: true });
+}
+
+const getNextLogFileName = () => {
+  const files = fs.readdirSync(logsDir);
+  const nextIndex = files.length + 1;
+  return path.join(logsDir, nextIndex.toString().padStart(9, "0") + ".json");
+};
+
+const writeLog = (logData) => {
+  const logFileName = getNextLogFileName();
+  const timestamp = new Date().toISOString();
+  logData.timestamp = timestamp;
+
+  fs.writeFile(logFileName, JSON.stringify(logData, null, 2), (err) => {
+    if (err) {
+      console.error("Log yazma hatası:", err);
+    }
+  });
+};
 
 const getAllMachines = (req, res) => {
   try {
     db.query("SELECT * FROM machine;", (err, result) => {
       if (err) {
-        console.log("error");
+        console.log("Makineleri alırken hata oluştu:", err);
         res.send("Makineleri alırken hata oluştu");
       } else {
         res.send(result);
@@ -40,9 +66,8 @@ const getMachineById = (req, res) => {
 };
 
 const createMachine = (req, res) => {
-  const { owner_id, machine_name } = req.body;
+  const { owner_id, machine_name, details } = req.body;
 
-  // owner_id'nin var olup olmadığını kontrol etmek için SELECT sorgusu
   const checkUserSql = "SELECT * FROM user WHERE user_id = ?";
   db.query(checkUserSql, [owner_id], (err, user) => {
     if (err) {
@@ -51,23 +76,33 @@ const createMachine = (req, res) => {
     } else if (user.length === 0) {
       return res.send("Geçersiz owner_id: Kullanıcı bulunamadı");
     } else {
-      // Kullanıcı varsa makina oluşturma işlemi
       const createMachineSql =
-        "INSERT INTO machine (owner_id, machine_name) VALUES (?, ?)";
-      db.query(createMachineSql, [owner_id, machine_name], (err, result) => {
-        if (err) {
-          console.error("Makina oluşturulurken hata oluştu:", err);
-          return res.send("Makina oluşturulurken hata oluştu");
-        } else {
-          res.send("Makina başarıyla oluşturuldu");
+        "INSERT INTO machine (owner_id, machine_name, details) VALUES (?, ?, ?)";
+      db.query(
+        createMachineSql,
+        [owner_id, machine_name, details],
+        (err, result) => {
+          if (err) {
+            console.error("Makina oluşturulurken hata oluştu:", err);
+            return res.send("Makina oluşturulurken hata oluştu");
+          } else {
+            res.send("Makina başarıyla oluşturuldu");
+            writeLog({
+              action: "create",
+              machine_id: result.insertId,
+              machine_name: machine_name,
+              details: details,
+            });
+          }
         }
-      });
+      );
     }
   });
 };
+
 const updateMachine = (req, res) => {
   const machine_id = req.params.machine_id;
-  const { owner_id, machine_name } = req.body;
+  const { owner_id, machine_name, details } = req.body;
 
   const checkUserSql = "SELECT * FROM user WHERE user_id = ?";
   db.query(checkUserSql, [owner_id], (err, user) => {
@@ -78,17 +113,27 @@ const updateMachine = (req, res) => {
       return res.send("Geçersiz owner_id: Kullanıcı bulunamadı");
     } else {
       const sql =
-        "UPDATE machine SET owner_id = ?, machine_name = ? WHERE machine_id = ?";
-      db.query(sql, [owner_id, machine_name, machine_id], (err, result) => {
-        if (err) {
-          console.error("Makina güncellenirken hata oluştu:", err);
-          res.send("Makina güncellenirken hata oluştu");
-        } else if (result.affectedRows > 0) {
-          res.send("Makina başarıyla güncellendi");
-        } else {
-          res.send("Makina bulunamadı");
+        "UPDATE machine SET owner_id = ?, machine_name = ?, details = ? WHERE machine_id = ?";
+      db.query(
+        sql,
+        [owner_id, machine_name, details, machine_id],
+        (err, result) => {
+          if (err) {
+            console.error("Makina güncellenirken hata oluştu:", err);
+            res.send("Makina güncellenirken hata oluştu");
+          } else if (result.affectedRows > 0) {
+            res.send("Makina başarıyla güncellendi");
+            writeLog({
+              action: "update",
+              machine_id: machine_id,
+              machine_name: machine_name,
+              details: details,
+            });
+          } else {
+            res.send("Makina bulunamadı");
+          }
         }
-      });
+      );
     }
   });
 };
@@ -110,9 +155,13 @@ const deleteMachine = (req, res) => {
       }
 
       if (result.affectedRows > 0) {
-        return res.send("Makina başarıyla silindi");
+        res.send("Makina başarıyla silindi");
+        writeLog({
+          action: "delete",
+          machine_id: machine_id,
+        });
       } else {
-        return res.send("Makina bulunamadı");
+        res.send("Makina bulunamadı");
       }
     });
   });
