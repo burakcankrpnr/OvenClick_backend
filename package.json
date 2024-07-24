@@ -5,6 +5,7 @@
     "express-validator": "^7.1.0",
     "jai-body-parser": "^1.1.4",
     "jsonwebtoken": "^9.0.2",
+    "middleware-io": "^2.8.1",
     "nodemon": "^3.1.4"
   },
   "name": "machine",
