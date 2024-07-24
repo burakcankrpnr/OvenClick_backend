@@ -59,7 +59,6 @@ const login = (req, res) => {
     const user = result[0];
 
     if (password !== user.password) {
-      // Düz metin şifre kontrolü
       return res.send("Invalid username or password");
     }
 
