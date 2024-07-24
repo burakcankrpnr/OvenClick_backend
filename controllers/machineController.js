@@ -8,18 +8,31 @@ if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
 
-const getNextLogFileName = () => {
-  const files = fs.readdirSync(logsDir);
-  const nextIndex = files.length + 1;
-  return path.join(logsDir, nextIndex.toString().padStart(9, "0") + ".json");
+const getLogFileName = (machine_id) => {
+  return path.join(logsDir, `${machine_id}.json`);
 };
 
 const writeLog = (logData) => {
-  const logFileName = getNextLogFileName();
+  const logFileName = getLogFileName(logData.machine_id);
   const timestamp = new Date().toISOString();
   logData.timestamp = timestamp;
 
-  fs.writeFile(logFileName, JSON.stringify(logData, null, 2), (err) => {
+  // Önce dosyayı oku, eğer varsa mevcut logları al
+  let logs = [];
+  if (fs.existsSync(logFileName)) {
+    try {
+      const fileContent = fs.readFileSync(logFileName, "utf-8");
+      logs = JSON.parse(fileContent);
+    } catch (err) {
+      console.error("Log dosyası okunurken hata oluştu:", err);
+    }
+  }
+
+  // Yeni logu mevcut loglar listesine ekle
+  logs.push(logData);
+
+  // Güncellenmiş logları dosyaya yaz
+  fs.writeFile(logFileName, JSON.stringify(logs, null, 2), (err) => {
     if (err) {
       console.error("Log yazma hatası:", err);
     }
@@ -86,10 +99,11 @@ const createMachine = (req, res) => {
             console.error("Makina oluşturulurken hata oluştu:", err);
             return res.send("Makina oluşturulurken hata oluştu");
           } else {
+            const newMachineId = result.insertId;
             res.send("Makina başarıyla oluşturuldu");
             writeLog({
               action: "create",
-              machine_id: result.insertId,
+              machine_id: newMachineId,
               machine_name: machine_name,
               details: details,
             });

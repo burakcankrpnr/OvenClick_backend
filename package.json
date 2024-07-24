@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
+    "express-validator": "^7.1.0",
     "jai-body-parser": "^1.1.4",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.4"

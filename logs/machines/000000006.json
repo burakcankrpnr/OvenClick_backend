@@ -1,7 +1,0 @@
-{
-  "action": "update",
-  "machine_id": "8",
-  "machine_name": "SWM3ww43",
-  "details": "{\n      \"temp\": 150,\n      \"pressure\": 96\n    }",
-  "timestamp": "2024-07-23T13:43:56.532Z"
-}

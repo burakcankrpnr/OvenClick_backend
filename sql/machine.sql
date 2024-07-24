@@ -1,0 +1,11 @@
+CREATE TABLE machine ( 
+    machine_id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_id INT NOT NULL,
+    machine_name VARCHAR(255) NOT NULL,
+    details VARCHAR(255), 
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (owner_id) REFERENCES user(user_id)
+);
+
+
