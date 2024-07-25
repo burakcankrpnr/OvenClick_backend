@@ -29,7 +29,7 @@ const authenticate = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    console.error(err); // Hata mesajlarını konsola yazdırın
+    console.error(err);
     return res.status(403).json({ message: "Invalid token" });
   }
 };
