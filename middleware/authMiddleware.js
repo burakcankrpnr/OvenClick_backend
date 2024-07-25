@@ -25,8 +25,8 @@ const authenticate = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    console.log(decoded); // decoded objesini kontrol edin
-    req.user = decoded; // decoded içeriğini doğrudan req.user'a atayın
+    console.log(decoded);
+    req.user = decoded;
     next();
   } catch (err) {
     console.error(err); // Hata mesajlarını konsola yazdırın

@@ -83,14 +83,12 @@ const deleteUser = (req, res) => {
   const user_id = req.params.user_id;
 
   try {
-    // İlk olarak, kullanıcının makinelerini sil
     const deleteMachinesSql = "DELETE FROM machine WHERE owner_id = ?";
     db.query(deleteMachinesSql, [user_id], (err, result) => {
       if (err) {
         console.error("Makineler silinirken hata oluştu:", err);
         return res.send("Makineler silinirken hata oluştu");
       }
-      // Ardından, kullanıcıyı sil
       const deleteUserSql = "DELETE FROM user WHERE user_id = ?";
       db.query(deleteUserSql, [user_id], (err, result) => {
         if (err) {

@@ -17,7 +17,6 @@ const writeLog = (logData) => {
   const timestamp = new Date().toISOString();
   logData.timestamp = timestamp;
 
-  // Önce dosyayı oku, eğer varsa mevcut logları al
   let logs = [];
   if (fs.existsSync(logFileName)) {
     try {
@@ -28,10 +27,8 @@ const writeLog = (logData) => {
     }
   }
 
-  // Yeni logu mevcut loglar listesine ekle
   logs.push(logData);
 
-  // Güncellenmiş logları dosyaya yaz
   fs.writeFile(logFileName, JSON.stringify(logs, null, 2), (err) => {
     if (err) {
       console.error("Log yazma hatası:", err);
