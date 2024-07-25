@@ -25,9 +25,11 @@ const authenticate = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded;
+    console.log(decoded); // decoded objesini kontrol edin
+    req.user = decoded; // decoded içeriğini doğrudan req.user'a atayın
     next();
   } catch (err) {
+    console.error(err); // Hata mesajlarını konsola yazdırın
     return res.status(403).json({ message: "Invalid token" });
   }
 };
