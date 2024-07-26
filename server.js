@@ -9,6 +9,10 @@ const port = 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  return res.send("Server running");
+});
 app.use("/user", userRoutes);
 app.use("/machines", machineRoutes);
 app.use("/auth", authRoutes);
