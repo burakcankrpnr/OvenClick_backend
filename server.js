@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://localhost:3000", // Sadece bu origin'den gelen istekleri kabul eder
+    origin: "http://localhost:3000",
   })
 );
 
