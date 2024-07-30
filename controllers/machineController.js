@@ -82,27 +82,30 @@ const createMachine = (req, res) => {
   db.query(checkUserSql, [owner_id], (err, user) => {
     if (err) {
       console.error("Kullanıcı doğrulanırken hata oluştu:", err);
-      return res.send("Kullanıcı doğrulanırken hata oluştu");
+      return res.status(500).send("Kullanıcı doğrulanırken hata oluştu");
     } else if (user.length === 0) {
-      return res.send("Geçersiz owner_id: Kullanıcı bulunamadı");
+      return res.status(400).send("Geçersiz owner_id: Kullanıcı bulunamadı");
     } else {
       const createMachineSql =
         "INSERT INTO machine (owner_id, machine_name, details) VALUES (?, ?, ?)";
+
+      const detailsJson = JSON.stringify(details);
+
       db.query(
         createMachineSql,
-        [owner_id, machine_name, details],
+        [owner_id, machine_name, detailsJson],
         (err, result) => {
           if (err) {
             console.error("Makina oluşturulurken hata oluştu:", err);
-            return res.send("Makina oluşturulurken hata oluştu");
+            return res.status(500).send("Makina oluşturulurken hata oluştu");
           } else {
             const newMachineId = result.insertId;
-            res.send("Makina başarıyla oluşturuldu");
+            res.status(201).send("Makina başarıyla oluşturuldu");
             writeLog({
               action: "create",
               machine_id: newMachineId,
               machine_name: machine_name,
-              details: details,
+              details: detailsJson,
             });
           }
         }
@@ -131,7 +134,7 @@ const updateMachine = (req, res) => {
         (err, result) => {
           if (err) {
             console.error("Makina güncellenirken hata oluştu:", err);
-            res.send("Makina güncellenirken hata oluştu");
+            res.send("sa");
           } else if (result.affectedRows > 0) {
             res.send("Makina başarıyla güncellendi");
             writeLog({
