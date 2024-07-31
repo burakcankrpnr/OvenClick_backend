@@ -1,0 +1,23 @@
+[
+  {
+    "action": "create",
+    "machine_id": 11,
+    "machine_name": "mac7",
+    "details": "\"vdsgdsg\"",
+    "timestamp": "2024-07-31T13:54:41.388Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "mac8",
+    "details": "\"vdsgdsg\"",
+    "timestamp": "2024-07-31T13:54:47.181Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "mac7",
+    "details": "\"vdsgdsg\"",
+    "timestamp": "2024-07-31T14:04:42.915Z"
+  }
+]

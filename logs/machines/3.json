@@ -4,5 +4,19 @@
     "machine_id": 3,
     "machine_name": "deneme3",
     "timestamp": "2024-07-30T13:08:09.469Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "3",
+    "machine_name": "mac",
+    "details": null,
+    "timestamp": "2024-07-31T13:31:47.509Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "3",
+    "machine_name": "mac3",
+    "details": null,
+    "timestamp": "2024-07-31T13:31:53.398Z"
   }
 ]

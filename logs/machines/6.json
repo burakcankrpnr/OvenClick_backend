@@ -5,5 +5,38 @@
     "machine_name": "deneme6",
     "details": "{\"temprature\":25,\"humidity\":50,\"vibration\":0.5,\"pressure\":1000,\"current\":0.5,\"voltage\":220,\"power\":100,\"energy\":1000,\"status\":\"running\"}",
     "timestamp": "2024-07-30T13:23:36.212Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "6",
+    "machine_name": "mac4",
+    "details": "{\"temprature\":25,\"humidity\":50,\"vibration\":0.5,\"pressure\":1000,\"current\":0.5,\"voltage\":220,\"power\":100,\"energy\":1000,\"status\":\"running\"}",
+    "timestamp": "2024-07-31T13:19:29.341Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "6",
+    "machine_name": "mac4",
+    "details": "{\"temprature\":25,\"humidity\":50,\"vibration\":0.5,\"pressure\":1000,\"current\":0.5,\"voltage\":220,\"power\":100,\"energy\":1000,\"status\":\"running\"}",
+    "timestamp": "2024-07-31T13:19:35.342Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "6",
+    "machine_name": "mac5",
+    "details": "{\"temprature\":25,\"humidity\":50,\"vibration\":0.5,\"pressure\":1000,\"current\":0.5,\"voltage\":220,\"power\":100,\"energy\":1000,\"status\":\"running\"}",
+    "timestamp": "2024-07-31T13:21:01.831Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "6",
+    "machine_name": "mac4",
+    "details": "{\"temprature\":25,\"humidity\":50,\"vibration\":0.5,\"pressure\":1000,\"current\":0.5,\"voltage\":220,\"power\":100,\"energy\":1000,\"status\":\"running\"}",
+    "timestamp": "2024-07-31T13:21:05.556Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "6",
+    "timestamp": "2024-07-31T13:31:49.008Z"
   }
 ]
