@@ -2,39 +2,39 @@ const db = require("../config/database");
 const fs = require("fs");
 const path = require("path");
 
-// const logsDir = path.join(__dirname, "../logs/machines");
+const logsDir = path.join(__dirname, "../logs/machines");
 
-// if (!fs.existsSync(logsDir)) {
-//   fs.mkdirSync(logsDir, { recursive: true });
-// }
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir, { recursive: true });
+}
 
-// const getLogFileName = (machine_id) => {
-//   return path.join(logsDir, `${machine_id}.json`);
-// };
+const getLogFileName = (machine_id) => {
+  return path.join(logsDir, `${machine_id}.json`);
+};
 
-// const writeLog = (logData) => {
-//   const logFileName = getLogFileName(logData.machine_id);
-//   const timestamp = new Date().toISOString();
-//   logData.timestamp = timestamp;
+const writeLog = (logData) => {
+  const logFileName = getLogFileName(logData.machine_id);
+  const timestamp = new Date().toISOString();
+  logData.timestamp = timestamp;
 
-//   let logs = [];
-//   if (fs.existsSync(logFileName)) {
-//     try {
-//       const fileContent = fs.readFileSync(logFileName, "utf-8");
-//       logs = JSON.parse(fileContent);
-//     } catch (err) {
-//       console.error("Log dosyası okunurken hata oluştu:", err);
-//     }
-//   }
+  let logs = [];
+  if (fs.existsSync(logFileName)) {
+    try {
+      const fileContent = fs.readFileSync(logFileName, "utf-8");
+      logs = JSON.parse(fileContent);
+    } catch (err) {
+      console.error("Log dosyası okunurken hata oluştu:", err);
+    }
+  }
 
-//   logs.push(logData);
+  logs.push(logData);
 
-//   fs.writeFile(logFileName, JSON.stringify(logs, null, 2), (err) => {
-//     if (err) {
-//       console.error("Log yazma hatası:", err);
-//     }
-//   });
-// };
+  fs.writeFile(logFileName, JSON.stringify(logs, null, 2), (err) => {
+    if (err) {
+      console.error("Log yazma hatası:", err);
+    }
+  });
+};
 
 const getAllMachines = (req, res) => {
   try {
@@ -62,7 +62,7 @@ const getMachineById = (req, res) => {
         console.error("Makinayı alırken hata oluştu:", err);
         res.send("Makinayı alırken hata oluştu");
       } else if (machine.length > 0) {
-        res.json(machine);
+        res.json(machine[0]);
       } else {
         res.json({
           message: "Makina bulunamadı",
