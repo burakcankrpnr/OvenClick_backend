@@ -1,74 +1,19 @@
 const db = require("../config/database");
 
 const getAllUser = (req, res) => {
-  const user_id = req.user.id;
-  const role = req.user.role;
-
-  switch (role) {
-    case "Admin":
-      try {
-        db.query("SELECT * FROM user;", function (err, result) {
-          if (err) {
-            console.log("Kullanıcıları alırken hata oluştu:", err);
-            res.status(500).send("Kullanıcıları alırken hata oluştu");
-          } else {
-            res.json(result);
-          }
-        });
-      } catch (error) {
-        console.error(error);
-        res.status(500).send("Sunucu hatası");
+  try {
+    db.query("SELECT * FROM user;", function (err, result) {
+      if (err) {
+        console.log("error");
+        res.send("Kullanıcıları alırken hata oluştu");
+      } else {
+        res.send(result);
       }
-      break;
-
-    case "Owner":
-      try {
-        db.query(
-          "SELECT * FROM user WHERE id = ?;",
-          [user_id],
-          function (err, result) {
-            if (err) {
-              console.log("Kullanıcıları alırken hata oluştu:", err);
-              res.status(500).send("Kullanıcıları alırken hata oluştu");
-            } else {
-              res.json(result);
-            }
-          }
-        );
-      } catch (error) {
-        console.error(error);
-        res.status(500).send("Sunucu hatası");
-      }
-      break;
-
-    case "User":
-      try {
-        db.query(
-          "SELECT * FROM user WHERE id = ?;",
-          [user_id],
-          function (err, result) {
-            if (err) {
-              console.log("Kullanıcıları alırken hata oluştu:", err);
-              res.status(500).send("Kullanıcıları alırken hata oluştu");
-            } else {
-              res.json(result);
-            }
-          }
-        );
-      } catch (error) {
-        console.error(error);
-        res.status(500).send("Sunucu hatası");
-      }
-      break;
-
-    default:
-      res.status(403).send("Yetkiniz bulunmamaktadır");
-      break;
+    });
+  } catch (error) {
+    console.error(error);
+    res.send("Sunucu hatası");
   }
-};
-
-module.exports = {
-  getAllUser,
 };
 
 const getUserById = (req, res) => {
@@ -93,69 +38,6 @@ const getUserById = (req, res) => {
 };
 
 const createUser = (req, res) => {
-  const user_id = req.user.id;
-
-  switch (role) {
-    case "Admin":
-      try {
-        db.query("SELECT * FROM user;", function (err, result) {
-          if (err) {
-            console.log("Kullanıcıları alırken hata oluştu:", err);
-            res.status(500).send("Kullanıcıları alırken hata oluştu");
-          } else {
-            res.json(result);
-          }
-        });
-      } catch (error) {
-        console.error(error);
-        res.status(500).send("Sunucu hatası");
-      }
-
-      break;
-    case "Owner":
-      try {
-        db.query(
-          "SELECT * FROM user WHERE id = ?;",
-          [user_id],
-          function (err, result) {
-            if (err) {
-              console.log("Kullanıcıları alırken hata oluştu:", err);
-              res.status(500).send("Kullanıcıları alırken hata oluştu");
-            } else {
-              res.json(result);
-            }
-          }
-        );
-      } catch (error) {
-        console.error(error);
-        res.status(500).send("Sunucu hatası");
-      }
-      break;
-    case "User":
-      try {
-        db.query(
-          "SELECT * FROM user WHERE id = ?;",
-          [user_id],
-          function (err, result) {
-            if (err) {
-              console.log("Kullanıcıları alırken hata oluştu:", err);
-              res.status(500).send("Kullanıcıları alırken hata oluştu");
-            } else {
-              res.json(result);
-            }
-          }
-        );
-      } catch (error) {
-        console.error(error);
-        res.status(500).send("Sunucu hatası");
-      }
-      break;
-
-    default:
-      res.status(403).send("Yetkiniz bulunmamaktadır");
-      break;
-  }
-
   const { username, password, email, role } = req.body;
   const sql =
     "INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, ?)";

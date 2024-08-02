@@ -60,7 +60,7 @@ const getAllMachines = (req, res) => {
     case "Owner":
       try {
         db.query(
-          "SELECT * FROM machine WHERE user_id = ?",
+          "SELECT * FROM machine WHERE owner_id = ?",
           [user_id],
           (err, result) => {
             if (err) {
