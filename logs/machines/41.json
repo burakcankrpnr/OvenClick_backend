@@ -1,0 +1,14 @@
+[
+  {
+    "action": "create",
+    "machine_id": 41,
+    "machine_name": "fgdgd",
+    "details": "\"dfhdh\"",
+    "timestamp": "2024-08-02T10:58:28.147Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "41",
+    "timestamp": "2024-08-02T11:50:00.977Z"
+  }
+]

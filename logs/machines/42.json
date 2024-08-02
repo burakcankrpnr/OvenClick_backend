@@ -1,0 +1,14 @@
+[
+  {
+    "action": "create",
+    "machine_id": 42,
+    "machine_name": "wrwet",
+    "details": "\"fsdg\"",
+    "timestamp": "2024-08-02T11:30:29.935Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "42",
+    "timestamp": "2024-08-02T11:30:32.743Z"
+  }
+]

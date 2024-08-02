@@ -37,18 +37,81 @@ const writeLog = (logData) => {
 };
 
 const getAllMachines = (req, res) => {
-  try {
-    db.query("SELECT * FROM machine;", (err, result) => {
-      if (err) {
-        console.log("Makineleri alırken hata oluştu:", err);
-        res.send("Makineleri alırken hata oluştu");
-      } else {
-        res.send(result);
+  const role = req.user.role;
+  const user_id = req.user.id;
+
+  switch (role) {
+    case "Admin":
+      try {
+        db.query("SELECT * FROM machine;", (err, result) => {
+          if (err) {
+            console.log("Makineleri alırken hata oluştu:", err);
+            res.status(500).send("Makineleri alırken hata oluştu");
+          } else {
+            res.json(result);
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Sunucu hatası");
       }
-    });
-  } catch (error) {
-    console.error(error);
-    res.send("Sunucu hatası");
+      break;
+
+    case "Owner":
+      try {
+        db.query(
+          "SELECT * FROM machine WHERE user_id = ?",
+          [user_id],
+          (err, result) => {
+            if (err) {
+              console.log("Makinelerini alırken hata oluştu:", err);
+              res.status(500).send("Makinelerini alırken hata oluştu");
+            } else {
+              res.json(result);
+            }
+          }
+        );
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Sunucu hatası");
+      }
+      break;
+
+    case "User":
+      try {
+        db.query(
+          "SELECT * FROM machine WHERE user_id = ?",
+          [user_id],
+          (err, result) => {
+            if (err) {
+              console.log("Makineleri alırken hata oluştu:", err);
+              res.status(500).send("Makineleri alırken hata oluştu");
+            } else {
+              res.json(result);
+            }
+          }
+        );
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Sunucu hatası");
+      }
+      break;
+
+    default:
+      try {
+        db.query("SELECT * FROM machine;", (err, result) => {
+          if (err) {
+            console.log("Makineleri alırken hata oluştu:", err);
+            res.status(500).send("Makineleri alırken hata oluştu");
+          } else {
+            res.json(result);
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Sunucu hatası");
+      }
+      break;
   }
 };
 
