@@ -5,5 +5,17 @@
     "machine_name": "mac46",
     "details": "\"dsgdfhhdf\"",
     "timestamp": "2024-08-02T13:52:32.041Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "47",
+    "machine_name": "mac13",
+    "details": "\"dsgdfhhdf\"",
+    "timestamp": "2024-08-05T05:23:40.239Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "47",
+    "timestamp": "2024-08-05T05:34:24.331Z"
   }
 ]

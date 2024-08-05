@@ -18,7 +18,6 @@ const authenticateToken = (req, res, next) => {
 const authenticate = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
-  console.log(token);
 
   if (!token) {
     return res.status(401).json({ message: "Unauthorized !! Please sign in" });

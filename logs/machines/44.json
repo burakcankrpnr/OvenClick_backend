@@ -5,5 +5,17 @@
     "machine_name": "sdfsdg",
     "details": "\"sdfd\"",
     "timestamp": "2024-08-02T13:51:09.133Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "44",
+    "machine_name": "mac10",
+    "details": "\"sdfd\"",
+    "timestamp": "2024-08-05T05:23:21.533Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "44",
+    "timestamp": "2024-08-05T05:54:55.720Z"
   }
 ]

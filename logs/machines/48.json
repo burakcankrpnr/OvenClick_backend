@@ -5,5 +5,10 @@
     "machine_name": "mac48",
     "details": "\"WETERYY\"",
     "timestamp": "2024-08-02T14:35:59.386Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "48",
+    "timestamp": "2024-08-03T17:30:00.507Z"
   }
 ]

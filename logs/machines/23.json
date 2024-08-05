@@ -5,5 +5,40 @@
     "machine_name": "mac2",
     "details": "\"sdfpmdspg\"",
     "timestamp": "2024-08-01T12:34:30.017Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac32",
+    "details": "\"sdfpmdspg\"",
+    "timestamp": "2024-08-05T05:38:33.665Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac3",
+    "details": "\"sdfpmdspg\"",
+    "timestamp": "2024-08-05T05:38:39.300Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac2",
+    "details": "\"sdfpmdspg\"",
+    "timestamp": "2024-08-05T05:38:44.332Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac3",
+    "details": "\"sdfpmdspg\"",
+    "timestamp": "2024-08-05T05:41:43.695Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac2",
+    "details": "\"sdfpmdspg\"",
+    "timestamp": "2024-08-05T05:41:47.443Z"
   }
 ]

@@ -196,7 +196,7 @@ const updateMachine = (req, res) => {
         [owner_id, machine_name, details, machine_id],
         (err, result) => {
           if (err) {
-            console.error("Makina güncellenirken hata oluştu:", err);
+            console.log("Makina güncellenirken hata oluştu:", err);
             res.send("sa");
           } else if (result.affectedRows > 0) {
             res.send("Makina başarıyla güncellendi");
