@@ -61,12 +61,12 @@ const createUser = (req, res) => {
 const updateUser = (req, res) => {
   const user_id = req.params.user_id;
   const { username, password, role, email } = req.body;
-  console.log(username, user_id);
+  console.log(req.body);
   try {
-    const sql = `UPDATE user SET username='${username}', role='${role}', email='${email}', password='${password}' WHERE id=${user_id}`;
+    const sql = `UPDATE user SET username='${username}', role='${role}', email='${email}', password='${password}' WHERE user_id=${user_id}`;
     db.query(sql, function (err, result) {
       if (err) {
-        console.log("error");
+        console.log(err);
         res.send("Kullanıcı güncellenirken hata oluştu");
       } else if (result.affectedRows > 0) {
         res.send("Kullanıcı başarıyla güncellendi");

@@ -5,5 +5,19 @@
     "machine_name": "mac6",
     "details": "\"sdgsdgs\"",
     "timestamp": "2024-08-05T05:23:00.837Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "30",
+    "machine_name": "mac11",
+    "details": "\"sdgsdgs\"",
+    "timestamp": "2024-08-05T06:07:36.577Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "30",
+    "machine_name": "mac6",
+    "details": "\"sdgsdgs\"",
+    "timestamp": "2024-08-05T06:07:42.915Z"
   }
 ]

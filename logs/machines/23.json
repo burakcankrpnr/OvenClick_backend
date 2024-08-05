@@ -40,5 +40,19 @@
     "machine_name": "mac2",
     "details": "\"sdfpmdspg\"",
     "timestamp": "2024-08-05T05:41:47.443Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac2",
+    "details": "\"pressure: 1000 hPa  warmness: 40°C \"",
+    "timestamp": "2024-08-05T08:23:46.415Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "23",
+    "machine_name": "mac2",
+    "details": "\"pressure: 1000 hPa                    warmness: 40°C \"",
+    "timestamp": "2024-08-05T08:23:56.979Z"
   }
 ]

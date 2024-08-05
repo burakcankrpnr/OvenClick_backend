@@ -1,0 +1,14 @@
+[
+  {
+    "action": "create",
+    "machine_id": 51,
+    "machine_name": "mac11",
+    "details": "\"rettrg\"",
+    "timestamp": "2024-08-05T06:08:58.896Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "51",
+    "timestamp": "2024-08-05T08:17:56.960Z"
+  }
+]
