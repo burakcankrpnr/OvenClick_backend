@@ -1,0 +1,47 @@
+[
+  {
+    "action": "create",
+    "machine_id": 11,
+    "machine_name": "oven1",
+    "details": "\"dfsddg\"",
+    "timestamp": "2024-08-18T12:12:05.744Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "oven1",
+    "details": "\"36.884804, 30.704044\"",
+    "timestamp": "2024-08-18T12:36:01.259Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "oven1",
+    "details": "\"36.884804, 30.704044\"",
+    "timestamp": "2024-08-18T12:43:13.928Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "oven1",
+    "timestamp": "2024-08-18T14:13:29.462Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "oven1",
+    "timestamp": "2024-08-18T14:14:34.452Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "oven1",
+    "timestamp": "2024-08-18T14:14:57.346Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "11",
+    "machine_name": "oven1",
+    "timestamp": "2024-08-18T14:15:27.046Z"
+  }
+]

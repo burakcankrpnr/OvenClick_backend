@@ -1,0 +1,16 @@
+[
+  {
+    "action": "create",
+    "machine_id": 12,
+    "machine_name": "oven",
+    "details": "\"sdgsd\"",
+    "timestamp": "2024-08-18T12:18:19.924Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "12",
+    "machine_name": "oven2",
+    "details": "\"sdgsd\"",
+    "timestamp": "2024-08-18T12:36:15.063Z"
+  }
+]

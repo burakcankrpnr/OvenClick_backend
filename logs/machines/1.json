@@ -1,0 +1,65 @@
+[
+  {
+    "action": "create",
+    "machine_id": 1,
+    "machine_name": "oven1",
+    "details": "\"srsdgsdgsg\"",
+    "timestamp": "2024-08-06T09:27:13.153Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srsdgsdgsg\"",
+    "timestamp": "2024-08-17T17:49:55.429Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srsdgs2dgsg\"",
+    "timestamp": "2024-08-17T17:50:01.421Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srsdgs2dgs2g\"",
+    "timestamp": "2024-08-17T17:54:44.739Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srsdgs2dsgs2g\"",
+    "timestamp": "2024-08-17T17:55:50.887Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven2",
+    "details": "\"srsdgs2dsgs2g\"",
+    "timestamp": "2024-08-17T17:56:38.530Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srsdgs2dsgs2g\"",
+    "timestamp": "2024-08-17T17:56:43.762Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srs2dgs2dsgs2g\"",
+    "timestamp": "2024-08-17T18:21:44.847Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "1",
+    "machine_name": "oven1",
+    "details": "\"srs22dgs2dsgs2g\"",
+    "timestamp": "2024-08-17T18:23:59.472Z"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "action": "create",
+    "machine_id": 6,
+    "machine_name": "oven2",
+    "details": "\"SDPOGNDPOGH\"",
+    "timestamp": "2024-08-18T10:13:14.477Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "6",
+    "machine_name": "oven2",
+    "details": "\"SDPOGNDPsOGH\"",
+    "timestamp": "2024-08-18T10:14:58.410Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "6",
+    "machine_name": "oven2",
+    "details": "\"SDPOGNDdPsOGH\"",
+    "timestamp": "2024-08-18T10:42:18.122Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "6",
+    "timestamp": "2024-08-18T10:42:41.546Z"
+  }
+]

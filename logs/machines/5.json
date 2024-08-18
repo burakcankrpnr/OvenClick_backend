@@ -1,0 +1,21 @@
+[
+  {
+    "action": "create",
+    "machine_id": 5,
+    "machine_name": "cxf",
+    "details": "\"sf\"",
+    "timestamp": "2024-08-17T18:32:39.999Z"
+  },
+  {
+    "action": "update",
+    "machine_id": "5",
+    "machine_name": "oven3",
+    "details": "\"sf\"",
+    "timestamp": "2024-08-17T18:33:16.617Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "5",
+    "timestamp": "2024-08-18T10:12:24.136Z"
+  }
+]

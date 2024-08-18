@@ -1,0 +1,14 @@
+[
+  {
+    "action": "create",
+    "machine_id": 2,
+    "machine_name": "oven2",
+    "details": "\"efposdaogm\"",
+    "timestamp": "2024-08-06T14:05:03.226Z"
+  },
+  {
+    "action": "delete",
+    "machine_id": "2",
+    "timestamp": "2024-08-17T17:53:28.357Z"
+  }
+]
