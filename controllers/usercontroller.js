@@ -19,22 +19,22 @@ const getAllUser = (req, res) => {
 const getUserById = (req, res) => {
   const user_id = req.params.user_id;
   try {
-    db.query(`SELECT * FROM user WHERE id=${user_id}`, function (err, user) {
+    db.query('SELECT * FROM user WHERE user_id = ?', [user_id], function (err, user) {
       if (err) {
-        console.log("error");
-        res.send("Kullanıcıyı alırken hata oluştu");
+        console.log("Veritabanı hatası:", err);
+        res.status(500).send("Kullanıcıyı alırken hata oluştu");
       } else if (user.length > 0) {
-        res.send(user);
+        res.json(user);
       } else {
-        res.json({
+        res.status(404).json({
           message: "Kullanıcı bulunamadı",
         });
       }
     });
   } catch (error) {
-    console.error(error);
-    res.send("Sunucu hatası");
-  }
+    console.log("Beklenmedik hata:", error);
+    res.status(500).send("Bir hata oluştu");
+  } 
 };
 
 const createUser = (req, res) => {
